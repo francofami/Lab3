@@ -1,3 +1,1 @@
-console.log("HOLA MUNDO!!!");
-console.log("Puedo mostrar comillas `simples`");
-console.log("Y comillas \"dobles\"");
+console.log("HOLA MUNDO!!! \n Puedo mostrar comillas 'simples'\n Y comillas \"dobles\"");
