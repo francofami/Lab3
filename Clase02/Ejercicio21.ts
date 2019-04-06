@@ -16,7 +16,11 @@ function ObtenerDatos():void
     {
         if((<HTMLInputElement> operando[i]).checked) //Si el item esta checkeado ahi me entero cual es
         {
-            Calcular(numero1, numero2, (<HTMLInputElement> operando[i]).value);
+            let resultado : number = Calcular(numero1, numero2, (<HTMLInputElement> operando[i]).value);
+
+            //alert("El resultado es: " + resultado);
+            (<HTMLInputElement> document.getElementById("resulta2")).value = resultado.toString();
+            console.log(resultado);
         }
     }
 }
@@ -41,13 +45,13 @@ function Calcular(numero1 : number,numero2 : number,operando : string):number
 
         case "*":
         {
-            retorno * numero1 - numero2;
+            retorno = numero1 * numero2;
         }
         break;
 
         case "/":
         {
-            retorno / numero1 - numero2;
+            retorno = numero1 / numero2;
         }
     }
 

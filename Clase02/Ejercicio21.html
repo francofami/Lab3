@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Calculadora</title>
+    
+    <script src="Ejercicio21.js" ></script>
+  </head>
+  <body class="container">
+    <br>
+    <span>Ingrese numero 1</span>
+    <input type="number" id="numero1" /> 
+    <span>Ingrese numero 2</span>
+    <input type="number" id="numero2" /> 
+    <hr />
+    <br>
+    
+    <h4>Elija operacion:</h4>
+
+    <br>Suma:	
+	<input type="radio" name="operando" value="+" checked="checked" /></br>						
+	<br>Resta:			
+	<input type="radio" name="operando" value="-" /></br>										
+    <br>Multiplicación:				
+	<input type="radio" name="operando" value="*" /></br>						
+    <br>División:				
+    <input type="radio" name="operando" value="/" /></br>	
+    
+    <input type="button" onclick="ObtenerDatos()" value="calcular" />
+
+    <br>Resultado:</br>
+    <input type="text" id="resulta2" value="" readonly="readonly" /> 
+                
+  </body>
+</html>
+
