@@ -11,6 +11,7 @@
     <!-- No uso form porque el form me envia la pagina entera -->
     <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre..." /><br><br>
     <input type="button" onclick="Ajax.Ingresar()" value="Enviar" />
+
     <div id="div_mostrar"></div>    
 </body>
 </html>

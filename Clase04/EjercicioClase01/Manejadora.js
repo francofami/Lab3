@@ -18,25 +18,30 @@ var Ajax;
     }
     Ajax.Saludar = Saludar;
     function Ingresar() {
-        var xhttp = new XMLHttpRequest();
-        var nombre = document.getElementById("nombre").value;
-        xhttp.open("POST", "administrar.php", true);
-        xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        xhttp.send("nombre=" + nombre + "&accion=" + 2);
-        xhttp.onreadystatechange = function () {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                //alert(xhttp.responseText);
-                console.log(xhttp.responseText);
-                document.getElementById("div_mostrar").innerHTML = xhttp.responseText;
-                if (xhttp.responseText == "1") {
-                    alert("Se pudo ingresar el nombre: " + nombre);
-                    Mostrar();
+        if (Verificar() == true) {
+            alert("El nombre ingresado ya existe");
+        }
+        else {
+            var xhttp_1 = new XMLHttpRequest();
+            var nombre_1 = document.getElementById("nombre").value;
+            xhttp_1.open("POST", "administrar.php", true);
+            xhttp_1.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xhttp_1.send("nombre=" + nombre_1 + "&accion=" + 2);
+            xhttp_1.onreadystatechange = function () {
+                if (xhttp_1.readyState == 4 && xhttp_1.status == 200) {
+                    //alert(xhttp.responseText);
+                    console.log(xhttp_1.responseText);
+                    document.getElementById("div_mostrar").innerHTML = xhttp_1.responseText;
+                    if (xhttp_1.responseText == "1") {
+                        alert("Se pudo ingresar el nombre: " + nombre_1);
+                        Mostrar();
+                    }
+                    else {
+                        alert("No se pudo ingresar el nombre: " + nombre_1);
+                    }
                 }
-                else {
-                    alert("No se pudo ingresar el nombre: " + nombre);
-                }
-            }
-        };
+            };
+        }
     }
     Ajax.Ingresar = Ingresar;
     function Mostrar() {
@@ -52,5 +57,27 @@ var Ajax;
                 document.getElementById("div_mostrar").innerHTML = xhttp.responseText;
             }
         };
+    }
+    function Verificar() {
+        var retorno;
+        var xhttp = new XMLHttpRequest();
+        var nombre = document.getElementById("nombre").value;
+        xhttp.open("POST", "administrar.php", true);
+        xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhttp.send("nombre=" + nombre + "&accion=" + 4);
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                //alert(xhttp.responseText);
+                //console.log(xhttp.responseText);
+                //(<HTMLDivElement>document.getElementById("div_mostrar")).innerHTML = xhttp.responseText;
+                if (xhttp.responseText == "0") {
+                    retorno = true;
+                }
+                else {
+                    retorno = false;
+                }
+            }
+        };
+        return retorno;
     }
 })(Ajax || (Ajax = {}));

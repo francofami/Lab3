@@ -25,6 +25,12 @@ namespace Ajax
 
     export function Ingresar() : void
     {
+        if(Verificar() == true)
+        {
+            alert("El nombre ingresado ya existe");
+        }
+        else
+        {
         let xhttp : XMLHttpRequest = new XMLHttpRequest();
 
         let nombre : string = (<HTMLInputElement> document.getElementById("nombre")).value
@@ -55,6 +61,7 @@ namespace Ajax
             }
             
         }
+        }
     }
 
     function Mostrar() : void
@@ -80,4 +87,42 @@ namespace Ajax
             
         }
     }
+
+    function Verificar() : bool
+    {
+        var retorno : bool;
+
+        let xhttp : XMLHttpRequest = new XMLHttpRequest();
+
+        let nombre : string = (<HTMLInputElement> document.getElementById("nombre")).value
+
+        xhttp.open("POST", "administrar.php", true);
+
+        xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+
+        xhttp.send("nombre="+nombre+"&accion="+4);
+
+        xhttp.onreadystatechange= () => 
+        {
+            if (xhttp.readyState == 4 && xhttp.status == 200) 
+            {
+                //alert(xhttp.responseText);
+                //console.log(xhttp.responseText);
+                //(<HTMLDivElement>document.getElementById("div_mostrar")).innerHTML = xhttp.responseText;
+
+                if(xhttp.responseText == "0")
+                {
+                    retorno = true;
+                }
+                else
+                {
+                    retorno = false;
+                }
+            }
+            
+        }
+
+        return retorno;
+    }
+
 }

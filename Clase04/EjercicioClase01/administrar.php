@@ -15,13 +15,12 @@
             if(fwrite($archivo, $_REQUEST["nombre"]."\r\n") != 0)
             {
                 fclose($archivo);
-
-                echo 1;
+                echo 1; //Esto hace que el responseText sea "1"
             }
             else
             {
                 fclose($archivo);
-                echo 0;
+                echo 0; //Esto hace que el responseText sea "1"
             }
         }
         break;
@@ -57,6 +56,41 @@
 
             fclose($archivo);
         }
+        break;
+
+        case 4:
+        {
+            $archivo = fopen("mensaje.txt", "r");
+
+            $flag = 0;
+
+            while(!feof($archivo))
+            { 
+                $mensaje = trim(fgets($archivo)); //El trim le quita los \r\n
+
+                var_dump($_REQUEST["nombre"]);
+                var_dump($mensaje);
+
+                if(strcmp($_REQUEST["nombre"], $mensaje) == 0)
+                {
+                    $flag = 1;
+                    break;
+                }
+
+            } 
+            
+            fclose($archivo);
+
+            if($flag==0)
+            {           
+                echo "1";
+            }
+            else
+            {
+                echo "0";
+            }   
+        }
+        break;
     }
     
 
