@@ -1,2 +1,1 @@
 {"Ok":true,"_foto":".\/BACKEND\/fotos\/20190503_153518.jpg","_nombre":"gfd","_apellido":"fdsfdsfsda","_dni":"65463","_sexo":"hombre","_legajo":"4536543","_sueldo":"6453634"}
-{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190503_155555.jpg","_nombre":"kghjk","_apellido":"jhgjghj","_dni":"78758","_sexo":"hombre","_legajo":"768678","_sueldo":"768768"}

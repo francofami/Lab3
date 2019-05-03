@@ -82,14 +82,12 @@ function Eliminar(obj : any)
     let xhr : XMLHttpRequest = new XMLHttpRequest();
 
     xhr.open('POST', './admin.php', true);
-    //xhr.setRequestHeader("enctype", "multipart/form-data");
+    xhr.setRequestHeader("enctype", "multipart/form-data"); //si envio json uso esto
     //para enviar solo texto por post
-    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    //xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
     let form : FormData = new FormData();
     form.append('obj', obj);
     form.append('op', 'EliminarDelListado');
     xhr.send(form);
-
-
 }
 
