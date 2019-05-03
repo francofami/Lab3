@@ -66,15 +66,24 @@
         {        
             $linea = fgets($file);
 
-            if(strcmp(trim($linea), $_POST["obj"]))
+            if($linea == "")
             {
-                
-            }
+                if(strcmp(trim($linea), $_POST["obj"]))
+                {
+                    continue;
+                }
+
+            }   
+
+            $texto.=trim($linea)."\r\n";
 
             break;
         }
         fclose($file);
 
+        $file = fopen("empleados.txt", "w");
+        fwrite($file, $texto);
+        fclose($file);
         break;
     
         default:

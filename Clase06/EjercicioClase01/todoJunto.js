@@ -117,11 +117,18 @@ function SubirFoto() {
         }
     };
 }
-function Eliminar($obj) {
+function Eliminar(obj) {
+    console.log(obj);
+    if (!confirm("Está seguro que desea eliminar a: " + obj._nombre)) {
+        return;
+    }
     var xhr = new XMLHttpRequest();
     xhr.open('POST', './admin.php', true);
     //xhr.setRequestHeader("enctype", "multipart/form-data");
     //para enviar solo texto por post
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.send("op=EliminarDelListado&obj=" + $obj);
+    var form = new FormData();
+    form.append('obj', obj);
+    form.append('op', 'EliminarDelListado');
+    xhr.send(form);
 }

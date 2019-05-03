@@ -71,14 +71,25 @@ function SubirFoto() : void
     }
 }
 
-function Eliminar($obj)
+function Eliminar(obj : any)
 {
+    console.log(obj);
+
+    if(!confirm("Está seguro que desea eliminar a: "+ obj._nombre))
+    {
+        return;
+    }
     let xhr : XMLHttpRequest = new XMLHttpRequest();
 
     xhr.open('POST', './admin.php', true);
     //xhr.setRequestHeader("enctype", "multipart/form-data");
     //para enviar solo texto por post
     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-    xhr.send("op=EliminarDelListado&obj="+$obj);
+    let form : FormData = new FormData();
+    form.append('obj', obj);
+    form.append('op', 'EliminarDelListado');
+    xhr.send(form);
+
+
 }
 
