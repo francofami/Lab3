@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -147,22 +150,18 @@ function MostrarModificar(obj) {
     document.getElementById("apellido").value = obj._apellido;
     document.getElementById("dni").value = obj._dni;
     document.getElementById("sexo").value = obj._sexo;
-    document.getElementById("legajo").disabled = true; //Para que no se pueda ver
+    document.getElementById("legajo").value = obj._legajo;
     document.getElementById("sueldo").value = obj._sueldo;
     document.getElementById("imgFoto").src = obj._foto;
+    document.getElementById("legajo").disabled = true; //Para que no se pueda ver
 }
-function Modificar(obj) {
-    console.log(obj);
-    /*if(!confirm("Está seguro que desea eliminar a: "+ obj._nombre))
-    {
-        return;
-    }*/
+function Modificar() {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', './admin.php', true);
     xhr.setRequestHeader("enctype", "multipart/form-data"); //si envio json uso esto
     //para enviar solo texto por post
     //xhr.setRequestH eader("content-type","application/x-www-form-urlencoded");
-    //let foto : any = (<HTMLInputElement> document.getElementById("foto"));
+    var foto = document.getElementById("foto");
     var nombre = document.getElementById("nombre").value;
     var apellido = document.getElementById("apellido").value;
     var dni = +document.getElementById("dni").value;
@@ -170,7 +169,7 @@ function Modificar(obj) {
     var legajo = +document.getElementById("legajo").value;
     var sueldo = +document.getElementById("sueldo").value;
     var form = new FormData();
-    //form.append('foto', foto.files[0]);
+    form.append('foto', foto.files[0]);
     form.append('nombre', nombre);
     form.append('apellido', apellido);
     form.append('dni', dni.toString());
@@ -181,4 +180,11 @@ function Modificar(obj) {
     xhr.open('POST', './admin.php', true);
     xhr.setRequestHeader("enctype", "multipart/form-data");
     xhr.send(form);
+    xhr.onreadystatechange = function () {
+        console.log(xhr.responseText);
+        var retJSON = JSON.parse(xhr.responseText);
+        document.getElementById("imgFoto");
+        src = "./" + retJSON._foto;
+        MostrarListado();
+    };
 }

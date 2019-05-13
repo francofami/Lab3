@@ -111,12 +111,12 @@
             $objRetorno = new stdClass();
             $objRetorno->Ok = false;
     
-            //$destino = "./BACKEND/fotos/" . date("Ymd_His") . ".jpg";
+            $destino = "./BACKEND/fotos/" . date("Ymd_His") . ".jpg";
             
-            /*if(move_uploaded_file($_FILES["foto"]["tmp_name"], $destino) ){
+            if(move_uploaded_file($_FILES["foto"]["tmp_name"], $destino) ){
                 $objRetorno->Ok = true;
                 $objRetorno->_foto = $destino;
-            }*/
+            }
 
             $objRetorno->_nombre = $_POST["nombre"];
             $objRetorno->_apellido = $_POST["apellido"];
@@ -138,23 +138,23 @@
             {        
                 $linea = trim(fgets($file));
     
-                echo $linea;
-    
                 if(strcmp("", $linea) == 0)
                 {
                     continue;
                 }   
     
-                $linea = json_decode($linea);
+                $objLinea = json_decode($linea);
     
-                if($linea->_legajo == $objJsonPost->_legajo)
+                if($objLinea->_legajo == $objetoJsonPost->_legajo)
                 {
-                    array_push($arrayObjetos, $objJsonPost);
+                    echo json_encode($objetoJsonPost);
+                    array_push($arrayObjetos, $objetoJsonPost);
                 }
-    
-                array_push($arrayObjetos, $linea);
+                else
+                {
+                    array_push($arrayObjetos, $objLinea);
+                }
             }
-    
     
             fclose($file);
     

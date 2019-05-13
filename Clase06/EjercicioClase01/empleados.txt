@@ -1,5 +1,3 @@
-{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190510_142203.jpg","_nombre":"A","_apellido":"A","_dni":"1","_sexo":"mujer","_legajo":"1","_sueldo":"2"}
-{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190510_142214.jpg","_nombre":"B","_apellido":"B","_dni":"2","_sexo":"hombre","_legajo":"2","_sueldo":"3"}
-{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190510_142725.jpg","_nombre":"gffdgdfs","_apellido":"fdsgdfsg","_dni":"56346","_sexo":"hombre","_legajo":"546435","_sueldo":"6456435"}
-{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190510_154341.jpg","_nombre":"fgfdgfd","_apellido":"fgfsdg","_dni":"54645","_sexo":"hombre","_legajo":"56456","_sueldo":"546456546"}
-{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190510_154425.jpg","_nombre":"rewrtwr","_apellido":"rewterwt","_dni":"656345","_sexo":"hombre","_legajo":"546456","_sueldo":"546456453"}
+{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190513_213725.jpg","_nombre":"Nicol\u00e1s","_apellido":"Domingo","_dni":"30656474","_sexo":"hombre","_legajo":"5","_sueldo":"30000"}
+{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190513_213647.jpg","_nombre":"Cecilio","_apellido":"Dominguez","_dni":"37569841","_sexo":"hombre","_legajo":"11","_sueldo":"40000"}
+{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190513_213816.jpg","_nombre":"Pablo","_apellido":"Perez","_dni":"28645758","_sexo":"hombre","_legajo":"8","_sueldo":"40000"}
