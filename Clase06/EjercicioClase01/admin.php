@@ -109,13 +109,20 @@
         case 'Modificar':
 
             $objRetorno = new stdClass();
-            $objRetorno->Ok = false;
-    
-            $destino = "./BACKEND/fotos/" . date("Ymd_His") . ".jpg";
+            $objRetorno->Ok = false;   
             
-            if(move_uploaded_file($_FILES["foto"]["tmp_name"], $destino) ){
-                $objRetorno->Ok = true;
-                $objRetorno->_foto = $destino;
+            if (isset($_FILES["foto"]))
+            {
+                $destino = "./BACKEND/fotos/" . date("Ymd_His") . ".jpg";
+
+                if(move_uploaded_file($_FILES["foto"]["tmp_name"], $destino) ){
+                    $objRetorno->Ok = true;
+                    $objRetorno->_foto = $destino;
+                }
+            }
+            else
+            {
+                $objRetorno->_foto = "./BACKEND/fotos/" . date("Ymd_His") . ".jpg";
             }
 
             $objRetorno->_nombre = $_POST["nombre"];

@@ -24,7 +24,7 @@ function MostrarListado()
 
         if (xhr.readyState == 4 && xhr.status == 200) {
 
-            console.log(xhr.responseText);
+            //console.log(xhr.responseText);
             
             let tabla = xhr.responseText;
         
@@ -45,7 +45,7 @@ function SubirFoto() : void
     let legajo : number = +(<HTMLInputElement> document.getElementById("legajo")).value;
     let sueldo : number = +(<HTMLInputElement> document.getElementById("sueldo")).value;
     let form : FormData = new FormData();
-    form.append('foto', foto.files[0]);
+    //form.append('foto', foto.files[0]);
     form.append('nombre', nombre);
     form.append('apellido', apellido);
     form.append('dni', dni.toString());
@@ -129,6 +129,7 @@ function Modificar()
     //xhr.setRequestH eader("content-type","application/x-www-form-urlencoded");
 
     let foto : any = (<HTMLInputElement> document.getElementById("foto"));
+    
     let nombre : string = (<HTMLInputElement> document.getElementById("nombre")).value;
     let apellido : string = (<HTMLInputElement> document.getElementById("apellido")).value;
     let dni : number = +(<HTMLInputElement> document.getElementById("dni")).value;
@@ -136,7 +137,9 @@ function Modificar()
     let legajo : number = +(<HTMLInputElement> document.getElementById("legajo")).value;
     let sueldo : number = +(<HTMLInputElement> document.getElementById("sueldo")).value;
     let form : FormData = new FormData();
-    form.append('foto', foto.files[0]);
+
+
+    //form.append('foto', foto.files[0]);
     form.append('nombre', nombre);
     form.append('apellido', apellido);
     form.append('dni', dni.toString());
@@ -150,12 +153,17 @@ function Modificar()
 
     xhr.onreadystatechange = () => {
 
-        console.log(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == 200) {
+
+            console.log(xhr.responseText);
             
-        let retJSON = JSON.parse(xhr.responseText);
- 
-        <HTMLImageElement> document.getElementById("imgFoto")).src = "./" + retJSON._foto;      
-        MostrarListado();  
+            let retJSON = JSON.parse(xhr.responseText);
+            
+            //console.log(retJSON._foto);
+            
+            (<HTMLImageElement> document.getElementById("imgFoto")).src = "./" + retJSON._foto;        
+            MostrarListado();              
+        }    
     }
 }
 

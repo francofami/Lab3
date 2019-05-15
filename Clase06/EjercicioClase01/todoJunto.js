@@ -82,7 +82,7 @@ function MostrarListado() {
     xhr.send("op=MostrarListado");
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
+            //console.log(xhr.responseText);
             var tabla = xhr.responseText;
             document.getElementById("tabla").innerHTML = tabla;
         }
@@ -98,7 +98,7 @@ function SubirFoto() {
     var legajo = +document.getElementById("legajo").value;
     var sueldo = +document.getElementById("sueldo").value;
     var form = new FormData();
-    form.append('foto', foto.files[0]);
+    //form.append('foto', foto.files[0]);
     form.append('nombre', nombre);
     form.append('apellido', apellido);
     form.append('dni', dni.toString());
@@ -169,7 +169,7 @@ function Modificar() {
     var legajo = +document.getElementById("legajo").value;
     var sueldo = +document.getElementById("sueldo").value;
     var form = new FormData();
-    form.append('foto', foto.files[0]);
+    //form.append('foto', foto.files[0]);
     form.append('nombre', nombre);
     form.append('apellido', apellido);
     form.append('dni', dni.toString());
@@ -181,10 +181,12 @@ function Modificar() {
     xhr.setRequestHeader("enctype", "multipart/form-data");
     xhr.send(form);
     xhr.onreadystatechange = function () {
-        console.log(xhr.responseText);
-        var retJSON = JSON.parse(xhr.responseText);
-        document.getElementById("imgFoto");
-        src = "./" + retJSON._foto;
-        MostrarListado();
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText);
+            var retJSON = JSON.parse(xhr.responseText);
+            //console.log(retJSON._foto);
+            document.getElementById("imgFoto").src = "./" + retJSON._foto;
+            MostrarListado();
+        }
     };
 }
