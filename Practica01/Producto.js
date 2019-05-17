@@ -8,7 +8,7 @@ var Entidades;
         }
         Producto.prototype.ToString = function () {
             var retorno;
-            retorno = '{"_codigo":"' + this._codigo.toString() + '","_marca":"' + this._marca + '","_precio":"' + this._precio.toString() + '",';
+            retorno = '{"_codigo":' + this._codigo.toString() + ',"_marca":"' + this._marca + '","_precio":' + this._precio.toString() + ',';
             return retorno;
         };
         return Producto;
