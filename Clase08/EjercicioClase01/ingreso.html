@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./todoJunto.js" ></script>
+</head>
+<body>
+    <table border="1" style="width:0%;height:0%">
+            <caption>Ingreso de empleado</caption>
+            
+            <tr>
+                    <td>Nombre:</td>                   
+                    <td><input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre..." /></td>
+            </tr>
+            <tr>
+                    <td>Apellido:</td>
+                    <td><input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido..." /></td>
+            </tr>
+            <tr>
+                    <td>Dni:</td>
+                    <td><input type="number" name="dni" id="dni" placeholder="Ingrese su dni..."></td>
+            </tr>
+            <tr>
+                    <td>Sexo:</td>
+                    <td><SELECT name="sexo" size=1 id="sexo"> 
+                            <OPTION value="hombre">Hombre</OPTION>
+                            <OPTION value="mujer">Mujer</OPTION>
+                            </SELECT></td>
+            </tr>
+            <tr>
+                    <td>Legajo:</td>
+                    <td><input type="number" name="legajo" id="legajo" placeholder="Ingrese su legajo..."></td>
+            </tr>
+            <tr>
+                    <td>Sueldo:</td>
+                    <td><input type="number" name="sueldo" id="sueldo" placeholder="Ingrese su sueldo..."></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Agregar" class="btn btn-success" onclick="SubirFoto()"/>
+                <input type="button" value="Modificar" class="btn btn-success" onclick="Modificar()"/>
+                    <input type="reset" value="Cancelar" />
+            </td>
+            </tr>
+
+            <table>
+                <tr style="text-align: left">
+                <td>
+                        <td><input type="file" id="foto" style="color:blue" /></td>  
+                </td>
+                
+                
+                                
+                        </tr>
+                <td style="text-align: left">
+                        <img id="imgFoto" src="./BACKEND/usr_default.jpg" width="250px" height="250px" />
+                </td>
+            </table>
+            
+    </table>
+
+        <div id='tabla'> </div>
+    
+</body>
+</html>

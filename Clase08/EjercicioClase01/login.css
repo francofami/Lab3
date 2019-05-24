@@ -1,0 +1,35 @@
+th {
+	background : rgb(0, 4, 255);
+	color : rgb(0, 255, 0);
+    font-size : 22pt;
+}
+
+span{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table{
+    background-color: forestgreen;
+    text-align: center;
+}
+
+input{
+    width: 100%;
+    font-size: 100%;
+}
+
+input[type="button"]{
+    width: 100%;
+}
+
+input[type="reset"]{
+    width: 100%;
+}
+
+.aceptar{
+    background-color: aquamarine;
+}
+
+.cancelar{
+    background-color: rgb(255, 52, 25);
+}
