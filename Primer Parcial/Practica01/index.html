@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="Producto.js"></script>
+    <script src="Televisor.js"></script>
+    <script src="Manejadora.js"></script>    
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" style="width:0%;height:0%">
+        <caption>Ingreso de televisor</caption>
+        
+        <tr>
+                <td>Tipo:</td>                   
+                <td><input type="text" name="tipo" id="tipo" placeholder="Ingrese tipo..." /></td>
+        </tr>
+        <tr>
+                <td>Pais de origen:</td>
+                <td><input type="text" name="paisOrigen" id="paisOrigen" placeholder="Ingrese pais de origen..." /></td>
+        </tr>
+        <tr>
+                <td>Codigo:</td>
+                <td><input type="text" name="codigo" id="codigo" placeholder="Ingrese su dni..."></td>
+        </tr>
+        <tr>
+                <td>Marca:</td>
+                <td><input type="text" name="marca" id="marca" placeholder="Ingrese marca..."></td>
+        </tr>
+        <tr>
+                <td>Precio:</td>
+                <td><input type="number" name="precio" id="precio" placeholder="Ingrese precio..."></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Agregar" class="btn btn-success" onclick="PrimerParcial.Manejadora.AgregarTelevisor()"/>
+            <input type="button" value="Modificar" class="btn btn-success" onclick="Modificar()"/>
+                <input type="reset" value="Cancelar" />
+        </td>
+        </tr>
+
+        <table>
+            <tr style="text-align: left">
+            <td>
+                    <td><input type="file" id="foto" style="color:blue" /></td>  
+            </td>                            
+            </tr>
+            <td style="text-align: left">
+                    <img id="imgFoto" src="./BACKEND/usr_default.jpg" width="250px" height="250px" />
+            </td>
+        </table>
+
+        <div id="divTabla"></div>
+        
+</table>
+
+</body>
+</html>
