@@ -7,13 +7,15 @@ namespace Ejercicio03
     protected _legajo : number;
     protected _sueldo : number;
     protected _foto : any;
+    protected _clave : string;
 
-    public constructor(nombre:string, apellido:string, dni:number, sexo:string, legajo:number, sueldo:number,foto:any)
+    public constructor(nombre:string, apellido:string, dni:number, sexo:string, legajo:number, sueldo:number,foto:any, clave:string)
     {
         super(nombre,apellido,dni,sexo);
         this._legajo = legajo;
         this._sueldo = sueldo;
         this._foto = foto;
+        this._clave = clave;
     }
 
     public GetLegajo() : number

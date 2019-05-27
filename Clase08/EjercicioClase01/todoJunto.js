@@ -44,11 +44,12 @@ var Ejercicio03;
 (function (Ejercicio03) {
     var Empleado = /** @class */ (function (_super) {
         __extends(Empleado, _super);
-        function Empleado(nombre, apellido, dni, sexo, legajo, sueldo, foto) {
+        function Empleado(nombre, apellido, dni, sexo, legajo, sueldo, foto, clave) {
             var _this = _super.call(this, nombre, apellido, dni, sexo) || this;
             _this._legajo = legajo;
             _this._sueldo = sueldo;
             _this._foto = foto;
+            _this._clave = clave;
             return _this;
         }
         Empleado.prototype.GetLegajo = function () {
@@ -97,6 +98,7 @@ function SubirFoto() {
     var sexo = document.getElementById("sexo").value;
     var legajo = +document.getElementById("legajo").value;
     var sueldo = +document.getElementById("sueldo").value;
+    var clave = document.getElementById("clave").value;
     var form = new FormData();
     //form.append('foto', foto.files[0]);
     form.append('nombre', nombre);
@@ -105,6 +107,7 @@ function SubirFoto() {
     form.append('sexo', sexo);
     form.append('legajo', legajo.toString());
     form.append('sueldo', sueldo.toString());
+    form.append('clave', clave);
     form.append('op', "subirFoto");
     xhr.open('POST', './admin.php', true);
     xhr.setRequestHeader("enctype", "multipart/form-data");
@@ -168,6 +171,7 @@ function Modificar() {
     var sexo = document.getElementById("sexo").value;
     var legajo = +document.getElementById("legajo").value;
     var sueldo = +document.getElementById("sueldo").value;
+    var clave = document.getElementById("clave").value;
     var form = new FormData();
     //form.append('foto', foto.files[0]);
     form.append('nombre', nombre);
@@ -176,6 +180,7 @@ function Modificar() {
     form.append('sexo', sexo);
     form.append('legajo', legajo.toString());
     form.append('sueldo', sueldo.toString());
+    form.append('clave', clave);
     form.append('op', "Modificar");
     xhr.open('POST', './admin.php', true);
     xhr.setRequestHeader("enctype", "multipart/form-data");
@@ -187,6 +192,32 @@ function Modificar() {
             //console.log(retJSON._foto);
             document.getElementById("imgFoto").src = "./" + retJSON._foto;
             MostrarListado();
+        }
+    };
+}
+function Login() {
+    var xhr = new XMLHttpRequest();
+    var legajoIngreso = +document.getElementById("legajoIngreso").value;
+    var claveIngreso = document.getElementById("claveIngreso").value;
+    var form = new FormData();
+    form.append('legajoIngreso', legajoIngreso.toString());
+    form.append('claveIngreso', claveIngreso);
+    form.append('op', "login");
+    xhr.open('POST', './admin.php', true);
+    xhr.setRequestHeader("enctype", "multipart/form-data");
+    xhr.send(form);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText);
+            var retJSON = JSON.parse(xhr.responseText);
+            if (!retJSON.Ok) {
+                console.error("NO se subió la foto!!!");
+            }
+            else {
+                console.info("Foto subida OK!!!");
+                document.getElementById("imgFoto").src = "./" + retJSON._foto;
+                MostrarListado();
+            }
         }
     };
 }

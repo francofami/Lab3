@@ -1,7 +1,7 @@
 <?php
 
     //var_dump($_POST);
-    require_once '/clases/AccesoDatos.php';
+    require_once '/BACKEND/clases/AccesoDatos.php';
     
     $op = isset($_POST["op"]) ? $_POST["op"] : null;
 
@@ -26,6 +26,7 @@
             $objRetorno->_sexo = $_POST["sexo"];
             $objRetorno->_legajo = $_POST["legajo"];
             $objRetorno->_sueldo = $_POST["sueldo"];
+            $objRetorno->_clave = password_hash($_POST["clave"], PASSWORD_BCRYPT);
 
             $file = fopen("empleados.txt", "a");
 
@@ -132,6 +133,7 @@
             $objRetorno->_sexo = $_POST["sexo"];
             $objRetorno->_legajo = $_POST["legajo"];
             $objRetorno->_sueldo = $_POST["sueldo"];
+            $objRetorno->_clave = password_hash($_POST["clave"], PASSWORD_BCRYPT);
 
             $objetoJsonPost = json_encode($objRetorno);
 
@@ -186,6 +188,8 @@
             /*$pass = $_POST['password'];    
             $passHash = password_hash($pass, PASSWORD_BCRYPT);
             password_verify($pass, $passHash);*/
+
+            
 
 
         break;

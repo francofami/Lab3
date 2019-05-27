@@ -44,6 +44,7 @@ function SubirFoto() : void
     let sexo : string = (<HTMLInputElement> document.getElementById("sexo")).value;
     let legajo : number = +(<HTMLInputElement> document.getElementById("legajo")).value;
     let sueldo : number = +(<HTMLInputElement> document.getElementById("sueldo")).value;
+    let clave : string = (<HTMLInputElement> document.getElementById("clave")).value;
     let form : FormData = new FormData();
     //form.append('foto', foto.files[0]);
     form.append('nombre', nombre);
@@ -52,6 +53,7 @@ function SubirFoto() : void
     form.append('sexo', sexo);
     form.append('legajo', legajo.toString());
     form.append('sueldo', sueldo.toString());
+    form.append('clave', clave);
     form.append('op', "subirFoto");
     xhr.open('POST', './admin.php', true);
     xhr.setRequestHeader("enctype", "multipart/form-data");
@@ -136,6 +138,7 @@ function Modificar()
     let sexo : string = (<HTMLInputElement> document.getElementById("sexo")).value;
     let legajo : number = +(<HTMLInputElement> document.getElementById("legajo")).value;
     let sueldo : number = +(<HTMLInputElement> document.getElementById("sueldo")).value;
+    let clave : string = (<HTMLInputElement> document.getElementById("clave")).value;
     let form : FormData = new FormData();
 
 
@@ -146,6 +149,7 @@ function Modificar()
     form.append('sexo', sexo);
     form.append('legajo', legajo.toString());
     form.append('sueldo', sueldo.toString());
+    form.append('clave', clave);
     form.append('op', "Modificar");
     xhr.open('POST', './admin.php', true);
     xhr.setRequestHeader("enctype", "multipart/form-data");
