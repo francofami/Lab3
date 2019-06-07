@@ -1,0 +1,4 @@
+{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190515_192754.jpg","_nombre":"Nicol\u00e1s","_apellido":"Domingo","_dni":"30656474","_sexo":"hombre","_legajo":"5","_sueldo":"30000"}
+{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190515_191712.jpg","_nombre":"Cecilio","_apellido":"Dominguez","_dni":"37569841","_sexo":"hombre","_legajo":"11","_sueldo":"40000"}
+{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190513_213816.jpg","_nombre":"Pablo","_apellido":"Perez","_dni":"28645758","_sexo":"hombre","_legajo":"8","_sueldo":"40000"}
+{"Ok":true,"_foto":".\/BACKEND\/fotos\/20190515_192742.jpg","_nombre":"Martin","_apellido":"Campa\u00f1a","_dni":"35241589","_sexo":"hombre","_legajo":"1","_sueldo":"33000"}
